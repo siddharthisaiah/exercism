@@ -11,10 +11,12 @@ color_codes = [
             'white'
         ]
 
+
 def value(colors):
-    str_val = ''
+    colors = list(reversed(colors))
+    result = 0
+    
+    for index, val in enumerate(colors):
+        result += color_codes.index(val) * pow(10, index)
 
-    for color in colors:
-        str_val += str(color_codes.index(color))
-
-    return int(str_val)
+    return result
