@@ -1,10 +1,6 @@
+ANAGRAM = lambda sorted_word, candidate: sorted(candidate.lower()) == sorted_word
+
 def find_anagrams(word, candidates):
-    sorted_word = ''.join(sorted(word.lower()))
-    return list(filter(lambda cand: cand.lower() != word.lower() and is_anagram(sorted_word, cand), candidates))
-
-
-def is_anagram(sorted_word, candidate):
-    sorted_candidate = ''.join(sorted(candidate.lower()))
-    return sorted_candidate == sorted_word
-    
+    sorted_word = sorted(word.lower())
+    return [c for c in candidates if c.lower() != word.lower() and ANAGRAM(sorted_word, c)]
     
