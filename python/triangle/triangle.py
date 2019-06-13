@@ -1,3 +1,5 @@
+from itertools import permutations
+
 def equilateral(sides):
     return triangle_equality(sides) and len(set(sides)) == 1
 
@@ -11,14 +13,10 @@ def scalene(sides):
 
 
 def triangle_equality(sides):
-    for l in sides:
-        if l <= 0: return False
-
-    if not (sides[1]+ sides[2] >= sides[0]):
+    if any(sides) <= 0:
         return False
-    if not (sides[2]+ sides[0] >= sides[1]):
-        return False
-    if not (sides[0]+ sides[1] >= sides[2]):
-        return False
-
+    
+    side_perms = [x for x in set(permutations(sides))]
+    for n in side_perms:
+        if not (n[0] + n[1] >= n[2]): return False
     return True
