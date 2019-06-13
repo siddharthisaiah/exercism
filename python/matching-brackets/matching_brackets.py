@@ -15,5 +15,3 @@ def is_paired(input_string):
             stack.pop()
                 
     return not stack
-
-
