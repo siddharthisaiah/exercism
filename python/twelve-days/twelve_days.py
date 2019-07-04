@@ -19,7 +19,7 @@ def recite(start_verse, end_verse):
     song = []
     
     for v in range(start_verse, end_verse + 1):
-        v_gifts = gifts[-v][4:] if v == 1 else ', '.join(gifts[-v:]) # gifts dont include the word 'and ' if its the first verse
+        v_gifts = gifts[-v].replace('and ', '') if v == 1 else ', '.join(gifts[-v:]) # gifts dont include the word 'and ' if its the first verse
         song.append(f"On the {verses[v]} day of Christmas my true love gave to me: {v_gifts}.")
         
     return song
